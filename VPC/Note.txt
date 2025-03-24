@@ -99,3 +99,67 @@ Associate correct Security Groups.
 Verify internet access for the public instance.
 
 Would you like the Terraform script, CloudFormation template, or CLI commands to automate this? Or continue with the manual guide?
+
+## Private IP
+192.168.0.0
+192.168.0.1
+192.168.0.2
+.
+.
+.
+.
+.
+.
+192.168.0.255
+192.168.1.0
+192.168.1.0
+192.168.1.0
+.
+.
+.
+.
+.
+.
+192.168.1.255
+
+## IP Range 
+0000.0000.0000.0000
+.
+.
+.
+1111.1111.1111.1111
+.
+.
+.
+.
+255.255.255.255
+
+
+------- 2 ki power 32
+## IP Address ki kami ki puri CIDR
+limit ki 
+ Solution 
+ ## CIDR 
+
+ sUBM=NET 
+
+## Subnet 
+ 192.168.0.0/16
+
+ 192.168.0.0  - 192.168.255.255
+
+ Network 1
+ 192.168.1.0  - 192.168.1.255
+ 192.168.1.0/24
+
+ Network 2
+ 192.168.2.0  - 192.168.2.255
+ 192.168.2.0/24
+
+ Network 3
+ 192.168.3.0  - 192.168.1.255
+ 192.168.3.0/24
+
+ Network 4
+ 192.168.4.0  - 192.168.2.255
+ 192.168.4.0/24
