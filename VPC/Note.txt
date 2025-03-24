@@ -1,0 +1,101 @@
+Creating a Virtual Private Cloud (VPC) in AWS is a fundamental networking task when setting up your cloud infrastructure. Below is a step-by-step guide to creating a custom VPC:
+
+✅ Steps to Create a VPC in AWS
+Step 1: Log in to the AWS Management Console
+Go to https://console.aws.amazon.com/ and sign in.
+
+Step 2: Navigate to VPC Dashboard
+In the Services menu, search for "VPC" and click on it.
+
+Step 3: Create a VPC
+Click “Create VPC”.
+
+Choose VPC only or VPC with Subnets (for quick setup).
+
+Fill the following details:
+
+Name tag: MyCustomVPC
+
+IPv4 CIDR block: 10.0.0.0/16
+
+IPv6 CIDR block: Optional (if needed)
+
+Tenancy: Default or Dedicated (default is cheaper)
+
+Click Create VPC.
+
+Step 4: Create Subnets
+Go to Subnets → Create subnet.
+
+Choose your VPC (MyCustomVPC).
+
+Create two subnets:
+
+Public Subnet
+
+Name: Public-Subnet
+
+Availability Zone: Choose one (e.g., us-east-1a)
+
+CIDR block: 10.0.1.0/24
+
+Private Subnet
+
+Name: Private-Subnet
+
+Availability Zone: (e.g., us-east-1b)
+
+CIDR block: 10.0.2.0/24
+
+Create Subnet.
+
+Step 5: Create an Internet Gateway (For Public Access)
+Go to Internet Gateways → Create internet gateway.
+
+Name: MyInternetGateway
+
+Attach it to your VPC.
+
+Step 6: Route Tables
+Go to Route Tables → Create route table.
+
+Name: Public-Route
+
+Attach to your VPC.
+
+Edit Routes:
+
+Add Route: 0.0.0.0/0 → Target: Your Internet Gateway
+
+Subnet Associations: Attach the Public Subnet to this route table.
+
+Step 7: (Optional) Create NAT Gateway for Private Subnet Internet Access
+Elastic IP: Allocate new one.
+
+NAT Gateway → Create NAT Gateway in the Public Subnet and assign the Elastic IP.
+
+Update Private Subnet's Route Table:
+
+Route 0.0.0.0/0 → NAT Gateway.
+
+Step 8: Configure Security Groups / Network ACLs
+Create and configure Security Groups as needed for your instances.
+
+Default Network ACL allows all traffic but you can customize it.
+
+✅ Summary of Your VPC
+Resource	Details
+VPC CIDR	10.0.0.0/16
+Public Subnet	10.0.1.0/24
+Private Subnet	10.0.2.0/24
+Internet Gateway	Attached
+Route Table	Configured for public
+NAT Gateway	Optional (for private)
+✅ Next Step
+Launch EC2 instances in your Public and Private subnets.
+
+Associate correct Security Groups.
+
+Verify internet access for the public instance.
+
+Would you like the Terraform script, CloudFormation template, or CLI commands to automate this? Or continue with the manual guide?
